@@ -1,0 +1,7 @@
+[package]
+name = "palazzo"
+version = "0.1.0"
+authors = ["Sean Policarpio <sean@policarp.io>"]
+edition = "2018"
+
+[dependencies]
