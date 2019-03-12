@@ -663,7 +663,6 @@ extern "C" {
     #[doc = " @param opts is the option description array"]
     #[doc = " @param proc is the processing function"]
     #[doc = " @return -1 on error, 0 on success"]
-    #[link_name = "\u{1}_fuse_opt_parse"]
     pub fn fuse_opt_parse(
         args: *mut fuse_args,
         data: *mut ::std::os::raw::c_void,
@@ -677,7 +676,6 @@ extern "C" {
     #[doc = " @param opts is a pointer to an option list, may point to a NULL value"]
     #[doc = " @param opt is the option to add"]
     #[doc = " @return -1 on allocation error, 0 on success"]
-    #[link_name = "\u{1}_fuse_opt_add_opt"]
     pub fn fuse_opt_add_opt(
         opts: *mut *mut ::std::os::raw::c_char,
         opt: *const ::std::os::raw::c_char,
@@ -689,7 +687,6 @@ extern "C" {
     #[doc = " @param opts is a pointer to an option list, may point to a NULL value"]
     #[doc = " @param opt is the option to add"]
     #[doc = " @return -1 on allocation error, 0 on success"]
-    #[link_name = "\u{1}_fuse_opt_add_opt_escaped"]
     pub fn fuse_opt_add_opt_escaped(
         opts: *mut *mut ::std::os::raw::c_char,
         opt: *const ::std::os::raw::c_char,
@@ -701,7 +698,6 @@ extern "C" {
     #[doc = " @param args is the structure containing the current argument list"]
     #[doc = " @param arg is the new argument to add"]
     #[doc = " @return -1 on allocation error, 0 on success"]
-    #[link_name = "\u{1}_fuse_opt_add_arg"]
     pub fn fuse_opt_add_arg(
         args: *mut fuse_args,
         arg: *const ::std::os::raw::c_char,
@@ -719,7 +715,6 @@ extern "C" {
     #[doc = " @param pos is the position at which to add the argument"]
     #[doc = " @param arg is the new argument to add"]
     #[doc = " @return -1 on allocation error, 0 on success"]
-    #[link_name = "\u{1}_fuse_opt_insert_arg"]
     pub fn fuse_opt_insert_arg(
         args: *mut fuse_args,
         pos: ::std::os::raw::c_int,
@@ -732,7 +727,6 @@ extern "C" {
     #[doc = " The structure itself is not freed"]
     #[doc = ""]
     #[doc = " @param args is the structure containing the argument list"]
-    #[link_name = "\u{1}_fuse_opt_free_args"]
     pub fn fuse_opt_free_args(args: *mut fuse_args);
 }
 extern "C" {
@@ -741,7 +735,6 @@ extern "C" {
     #[doc = " @param opts is the option description array"]
     #[doc = " @param opt is the option to match"]
     #[doc = " @return 1 if a match is found, 0 if not"]
-    #[link_name = "\u{1}_fuse_opt_match"]
     pub fn fuse_opt_match(
         opts: *const fuse_opt,
         opt: *const ::std::os::raw::c_char,
@@ -1891,7 +1884,6 @@ extern "C" {
     #[doc = ""]
     #[doc = " @param args argument vector (input+output)"]
     #[doc = " @return parsed options"]
-    #[link_name = "\u{1}_fuse_parse_conn_info_opts"]
     pub fn fuse_parse_conn_info_opts(args: *mut fuse_args) -> *mut fuse_conn_info_opts;
 }
 extern "C" {
@@ -1900,7 +1892,6 @@ extern "C" {
     #[doc = " max_write, max_readahead, congestion_threshold, max_background,"]
     #[doc = " time_gran. A field is only set (or unset) if the corresponding"]
     #[doc = " option has been explicitly set."]
-    #[link_name = "\u{1}_fuse_apply_conn_info_opts"]
     pub fn fuse_apply_conn_info_opts(opts: *mut fuse_conn_info_opts, conn: *mut fuse_conn_info);
 }
 extern "C" {
@@ -1908,28 +1899,24 @@ extern "C" {
     #[doc = ""]
     #[doc = " @param foreground if true, stay in the foreground"]
     #[doc = " @return 0 on success, -1 on failure"]
-    #[link_name = "\u{1}_fuse_daemonize"]
     pub fn fuse_daemonize(foreground: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
 }
 extern "C" {
     #[doc = " Get the version of the library"]
     #[doc = ""]
     #[doc = " @return the version"]
-    #[link_name = "\u{1}_fuse_version"]
     pub fn fuse_version() -> ::std::os::raw::c_int;
 }
 extern "C" {
     #[doc = " Get the full package version string of the library"]
     #[doc = ""]
     #[doc = " @return the package version"]
-    #[link_name = "\u{1}_fuse_pkgversion"]
     pub fn fuse_pkgversion() -> *const ::std::os::raw::c_char;
 }
 extern "C" {
     #[doc = " Destroy poll handle"]
     #[doc = ""]
     #[doc = " @param ph the poll handle"]
-    #[link_name = "\u{1}_fuse_pollhandle_destroy"]
     pub fn fuse_pollhandle_destroy(ph: *mut fuse_pollhandle);
 }
 #[doc = " Buffer contains a file descriptor"]
@@ -2141,7 +2128,6 @@ extern "C" {
     #[doc = ""]
     #[doc = " @param bufv buffer vector"]
     #[doc = " @return size of data"]
-    #[link_name = "\u{1}_fuse_buf_size"]
     pub fn fuse_buf_size(bufv: *const fuse_bufvec) -> usize;
 }
 extern "C" {
@@ -2151,7 +2137,6 @@ extern "C" {
     #[doc = " @param src source buffer vector"]
     #[doc = " @param flags flags controlling the copy"]
     #[doc = " @return actual number of bytes copied or -errno on error"]
-    #[link_name = "\u{1}_fuse_buf_copy"]
     pub fn fuse_buf_copy(
         dst: *mut fuse_bufvec,
         src: *mut fuse_bufvec,
@@ -2172,7 +2157,6 @@ extern "C" {
     #[doc = ""]
     #[doc = " See also:"]
     #[doc = " fuse_remove_signal_handlers()"]
-    #[link_name = "\u{1}_fuse_set_signal_handlers"]
     pub fn fuse_set_signal_handlers(se: *mut fuse_session) -> ::std::os::raw::c_int;
 }
 extern "C" {
@@ -2185,7 +2169,6 @@ extern "C" {
     #[doc = ""]
     #[doc = " See also:"]
     #[doc = " fuse_set_signal_handlers()"]
-    #[link_name = "\u{1}_fuse_remove_signal_handlers"]
     pub fn fuse_remove_signal_handlers(se: *mut fuse_session);
 }
 #[repr(C)]
@@ -2918,7 +2901,6 @@ pub const filesec_property_t_FILESEC_ACL_RAW: filesec_property_t = 100;
 pub const filesec_property_t_FILESEC_ACL_ALLOCSIZE: filesec_property_t = 101;
 pub type filesec_property_t = u32;
 extern "C" {
-    #[link_name = "\u{1}_open"]
     pub fn open(
         arg1: *const ::std::os::raw::c_char,
         arg2: ::std::os::raw::c_int,
@@ -2926,7 +2908,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_openat"]
     pub fn openat(
         arg1: ::std::os::raw::c_int,
         arg2: *const ::std::os::raw::c_char,
@@ -2935,11 +2916,9 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_creat"]
     pub fn creat(arg1: *const ::std::os::raw::c_char, arg2: mode_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fcntl"]
     pub fn fcntl(
         arg1: ::std::os::raw::c_int,
         arg2: ::std::os::raw::c_int,
@@ -2947,7 +2926,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_openx_np"]
     pub fn openx_np(
         arg1: *const ::std::os::raw::c_char,
         arg2: ::std::os::raw::c_int,
@@ -2955,7 +2933,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_open_dprotected_np"]
     pub fn open_dprotected_np(
         arg1: *const ::std::os::raw::c_char,
         arg2: ::std::os::raw::c_int,
@@ -2965,24 +2942,19 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_flock"]
     pub fn flock(arg1: ::std::os::raw::c_int, arg2: ::std::os::raw::c_int)
         -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_filesec_init"]
     pub fn filesec_init() -> filesec_t;
 }
 extern "C" {
-    #[link_name = "\u{1}_filesec_dup"]
     pub fn filesec_dup(arg1: filesec_t) -> filesec_t;
 }
 extern "C" {
-    #[link_name = "\u{1}_filesec_free"]
     pub fn filesec_free(arg1: filesec_t);
 }
 extern "C" {
-    #[link_name = "\u{1}_filesec_get_property"]
     pub fn filesec_get_property(
         arg1: filesec_t,
         arg2: filesec_property_t,
@@ -2990,7 +2962,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_filesec_query_property"]
     pub fn filesec_query_property(
         arg1: filesec_t,
         arg2: filesec_property_t,
@@ -2998,7 +2969,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_filesec_set_property"]
     pub fn filesec_set_property(
         arg1: filesec_t,
         arg2: filesec_property_t,
@@ -3006,7 +2976,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_filesec_unset_property"]
     pub fn filesec_unset_property(
         arg1: filesec_t,
         arg2: filesec_property_t,
@@ -3154,55 +3123,42 @@ fn bindgen_test_layout_tm() {
     );
 }
 extern "C" {
-    #[link_name = "\u{1}_tzname"]
     pub static mut tzname: [*mut ::std::os::raw::c_char; 0usize];
 }
 extern "C" {
-    #[link_name = "\u{1}_getdate_err"]
     pub static mut getdate_err: ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_timezone"]
     pub static mut timezone: ::std::os::raw::c_long;
 }
 extern "C" {
-    #[link_name = "\u{1}_daylight"]
     pub static mut daylight: ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_asctime"]
     pub fn asctime(arg1: *const tm) -> *mut ::std::os::raw::c_char;
 }
 extern "C" {
-    #[link_name = "\u{1}_clock"]
     pub fn clock() -> clock_t;
 }
 extern "C" {
-    #[link_name = "\u{1}_ctime"]
     pub fn ctime(arg1: *const time_t) -> *mut ::std::os::raw::c_char;
 }
 extern "C" {
-    #[link_name = "\u{1}_difftime"]
     pub fn difftime(arg1: time_t, arg2: time_t) -> f64;
 }
 extern "C" {
-    #[link_name = "\u{1}_getdate"]
     pub fn getdate(arg1: *const ::std::os::raw::c_char) -> *mut tm;
 }
 extern "C" {
-    #[link_name = "\u{1}_gmtime"]
     pub fn gmtime(arg1: *const time_t) -> *mut tm;
 }
 extern "C" {
-    #[link_name = "\u{1}_localtime"]
     pub fn localtime(arg1: *const time_t) -> *mut tm;
 }
 extern "C" {
-    #[link_name = "\u{1}_mktime"]
     pub fn mktime(arg1: *mut tm) -> time_t;
 }
 extern "C" {
-    #[link_name = "\u{1}_strftime"]
     pub fn strftime(
         arg1: *mut ::std::os::raw::c_char,
         arg2: usize,
@@ -3211,7 +3167,6 @@ extern "C" {
     ) -> usize;
 }
 extern "C" {
-    #[link_name = "\u{1}_strptime"]
     pub fn strptime(
         arg1: *const ::std::os::raw::c_char,
         arg2: *const ::std::os::raw::c_char,
@@ -3219,57 +3174,45 @@ extern "C" {
     ) -> *mut ::std::os::raw::c_char;
 }
 extern "C" {
-    #[link_name = "\u{1}_time"]
     pub fn time(arg1: *mut time_t) -> time_t;
 }
 extern "C" {
-    #[link_name = "\u{1}_tzset"]
     pub fn tzset();
 }
 extern "C" {
-    #[link_name = "\u{1}_asctime_r"]
     pub fn asctime_r(
         arg1: *const tm,
         arg2: *mut ::std::os::raw::c_char,
     ) -> *mut ::std::os::raw::c_char;
 }
 extern "C" {
-    #[link_name = "\u{1}_ctime_r"]
     pub fn ctime_r(
         arg1: *const time_t,
         arg2: *mut ::std::os::raw::c_char,
     ) -> *mut ::std::os::raw::c_char;
 }
 extern "C" {
-    #[link_name = "\u{1}_gmtime_r"]
     pub fn gmtime_r(arg1: *const time_t, arg2: *mut tm) -> *mut tm;
 }
 extern "C" {
-    #[link_name = "\u{1}_localtime_r"]
     pub fn localtime_r(arg1: *const time_t, arg2: *mut tm) -> *mut tm;
 }
 extern "C" {
-    #[link_name = "\u{1}_posix2time"]
     pub fn posix2time(arg1: time_t) -> time_t;
 }
 extern "C" {
-    #[link_name = "\u{1}_tzsetwall"]
     pub fn tzsetwall();
 }
 extern "C" {
-    #[link_name = "\u{1}_time2posix"]
     pub fn time2posix(arg1: time_t) -> time_t;
 }
 extern "C" {
-    #[link_name = "\u{1}_timelocal"]
     pub fn timelocal(arg1: *mut tm) -> time_t;
 }
 extern "C" {
-    #[link_name = "\u{1}_timegm"]
     pub fn timegm(arg1: *mut tm) -> time_t;
 }
 extern "C" {
-    #[link_name = "\u{1}_nanosleep"]
     pub fn nanosleep(__rqtp: *const timespec, __rmtp: *mut timespec) -> ::std::os::raw::c_int;
 }
 pub const clockid_t__CLOCK_REALTIME: clockid_t = 0;
@@ -3282,19 +3225,15 @@ pub const clockid_t__CLOCK_PROCESS_CPUTIME_ID: clockid_t = 12;
 pub const clockid_t__CLOCK_THREAD_CPUTIME_ID: clockid_t = 16;
 pub type clockid_t = u32;
 extern "C" {
-    #[link_name = "\u{1}_clock_getres"]
     pub fn clock_getres(__clock_id: clockid_t, __res: *mut timespec) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_clock_gettime"]
     pub fn clock_gettime(__clock_id: clockid_t, __tp: *mut timespec) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_clock_gettime_nsec_np"]
     pub fn clock_gettime_nsec_np(__clock_id: clockid_t) -> __uint64_t;
 }
 extern "C" {
-    #[link_name = "\u{1}_clock_settime"]
     pub fn clock_settime(__clock_id: clockid_t, __tp: *const timespec) -> ::std::os::raw::c_int;
 }
 #[repr(C)]
@@ -3910,35 +3849,27 @@ fn bindgen_test_layout_stat64() {
     );
 }
 extern "C" {
-    #[link_name = "\u{1}_chmod"]
     pub fn chmod(arg1: *const ::std::os::raw::c_char, arg2: mode_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fchmod"]
     pub fn fchmod(arg1: ::std::os::raw::c_int, arg2: mode_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fstat$INODE64"]
     pub fn fstat(arg1: ::std::os::raw::c_int, arg2: *mut stat) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_lstat$INODE64"]
     pub fn lstat(arg1: *const ::std::os::raw::c_char, arg2: *mut stat) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_mkdir"]
     pub fn mkdir(arg1: *const ::std::os::raw::c_char, arg2: mode_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_mkfifo"]
     pub fn mkfifo(arg1: *const ::std::os::raw::c_char, arg2: mode_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_stat$INODE64"]
     pub fn stat(arg1: *const ::std::os::raw::c_char, arg2: *mut stat) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_mknod"]
     pub fn mknod(
         arg1: *const ::std::os::raw::c_char,
         arg2: mode_t,
@@ -3946,11 +3877,9 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_umask"]
     pub fn umask(arg1: mode_t) -> mode_t;
 }
 extern "C" {
-    #[link_name = "\u{1}_fchmodat"]
     pub fn fchmodat(
         arg1: ::std::os::raw::c_int,
         arg2: *const ::std::os::raw::c_char,
@@ -3959,7 +3888,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fstatat$INODE64"]
     pub fn fstatat(
         arg1: ::std::os::raw::c_int,
         arg2: *const ::std::os::raw::c_char,
@@ -3968,7 +3896,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_mkdirat"]
     pub fn mkdirat(
         arg1: ::std::os::raw::c_int,
         arg2: *const ::std::os::raw::c_char,
@@ -3976,12 +3903,10 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_futimens"]
     pub fn futimens(__fd: ::std::os::raw::c_int, __times: *const timespec)
         -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_utimensat"]
     pub fn utimensat(
         __fd: ::std::os::raw::c_int,
         __path: *const ::std::os::raw::c_char,
@@ -3990,24 +3915,19 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_chflags"]
     pub fn chflags(arg1: *const ::std::os::raw::c_char, arg2: __uint32_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_chmodx_np"]
     pub fn chmodx_np(arg1: *const ::std::os::raw::c_char, arg2: filesec_t)
         -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fchflags"]
     pub fn fchflags(arg1: ::std::os::raw::c_int, arg2: __uint32_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fchmodx_np"]
     pub fn fchmodx_np(arg1: ::std::os::raw::c_int, arg2: filesec_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fstatx_np$INODE64"]
     pub fn fstatx_np(
         arg1: ::std::os::raw::c_int,
         arg2: *mut stat,
@@ -4015,16 +3935,13 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_lchflags"]
     pub fn lchflags(arg1: *const ::std::os::raw::c_char, arg2: __uint32_t)
         -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_lchmod"]
     pub fn lchmod(arg1: *const ::std::os::raw::c_char, arg2: mode_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_lstatx_np$INODE64"]
     pub fn lstatx_np(
         arg1: *const ::std::os::raw::c_char,
         arg2: *mut stat,
@@ -4032,19 +3949,16 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_mkdirx_np"]
     pub fn mkdirx_np(arg1: *const ::std::os::raw::c_char, arg2: filesec_t)
         -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_mkfifox_np"]
     pub fn mkfifox_np(
         arg1: *const ::std::os::raw::c_char,
         arg2: filesec_t,
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_statx_np$INODE64"]
     pub fn statx_np(
         arg1: *const ::std::os::raw::c_char,
         arg2: *mut stat,
@@ -4052,11 +3966,9 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_umaskx_np"]
     pub fn umaskx_np(arg1: filesec_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fstatx64_np"]
     pub fn fstatx64_np(
         arg1: ::std::os::raw::c_int,
         arg2: *mut stat64,
@@ -4064,7 +3976,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_lstatx64_np"]
     pub fn lstatx64_np(
         arg1: *const ::std::os::raw::c_char,
         arg2: *mut stat64,
@@ -4072,7 +3983,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_statx64_np"]
     pub fn statx64_np(
         arg1: *const ::std::os::raw::c_char,
         arg2: *mut stat64,
@@ -4080,16 +3990,13 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fstat64"]
     pub fn fstat64(arg1: ::std::os::raw::c_int, arg2: *mut stat64) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_lstat64"]
     pub fn lstat64(arg1: *const ::std::os::raw::c_char, arg2: *mut stat64)
         -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_stat64"]
     pub fn stat64(arg1: *const ::std::os::raw::c_char, arg2: *mut stat64) -> ::std::os::raw::c_int;
 }
 #[repr(C)]
@@ -4231,11 +4138,9 @@ fn bindgen_test_layout_statvfs() {
     );
 }
 extern "C" {
-    #[link_name = "\u{1}_fstatvfs"]
     pub fn fstatvfs(arg1: ::std::os::raw::c_int, arg2: *mut statvfs) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_statvfs"]
     pub fn statvfs(
         arg1: *const ::std::os::raw::c_char,
         arg2: *mut statvfs,
@@ -4284,7 +4189,6 @@ pub const uio_rw_UIO_READ: uio_rw = 0;
 pub const uio_rw_UIO_WRITE: uio_rw = 1;
 pub type uio_rw = u32;
 extern "C" {
-    #[link_name = "\u{1}_readv"]
     pub fn readv(
         arg1: ::std::os::raw::c_int,
         arg2: *const iovec,
@@ -4292,7 +4196,6 @@ extern "C" {
     ) -> isize;
 }
 extern "C" {
-    #[link_name = "\u{1}_writev"]
     pub fn writev(
         arg1: ::std::os::raw::c_int,
         arg2: *const iovec,
@@ -5914,11 +5817,9 @@ extern "C" {
     #[doc = " and attempts to call their help functions as well."]
     #[doc = ""]
     #[doc = " @param args the argument vector."]
-    #[link_name = "\u{1}_fuse_lib_help"]
     pub fn fuse_lib_help(args: *mut fuse_args);
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_new"]
     pub fn fuse_new(
         args: *mut fuse_args,
         op: *const fuse_operations,
@@ -5933,7 +5834,6 @@ extern "C" {
     #[doc = " @param f the FUSE handle"]
     #[doc = ""]
     #[doc = " @return 0 on success, -1 on failure."]
-    #[link_name = "\u{1}_fuse_mount"]
     pub fn fuse_mount(
         f: *mut fuse,
         mountpoint: *const ::std::os::raw::c_char,
@@ -5945,7 +5845,6 @@ extern "C" {
     #[doc = " See fuse_session_unmount() for additional information."]
     #[doc = ""]
     #[doc = " @param f the FUSE handle"]
-    #[link_name = "\u{1}_fuse_unmount"]
     pub fn fuse_unmount(f: *mut fuse);
 }
 extern "C" {
@@ -5955,7 +5854,6 @@ extern "C" {
     #[doc = " needed, call fuse_unmount() before calling this function."]
     #[doc = ""]
     #[doc = " @param f the FUSE handle"]
-    #[link_name = "\u{1}_fuse_destroy"]
     pub fn fuse_destroy(f: *mut fuse);
 }
 extern "C" {
@@ -5972,7 +5870,6 @@ extern "C" {
     #[doc = " @return see fuse_session_loop()"]
     #[doc = ""]
     #[doc = " See also: fuse_loop_mt()"]
-    #[link_name = "\u{1}_fuse_loop"]
     pub fn fuse_loop(f: *mut fuse) -> ::std::os::raw::c_int;
 }
 extern "C" {
@@ -5982,11 +5879,9 @@ extern "C" {
     #[doc = " the next opportunity."]
     #[doc = ""]
     #[doc = " @param f the FUSE handle"]
-    #[link_name = "\u{1}_fuse_exit"]
     pub fn fuse_exit(f: *mut fuse);
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_loop_mt_31"]
     pub fn fuse_loop_mt_31(f: *mut fuse, clone_fd: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
 }
 extern "C" {
@@ -5996,7 +5891,6 @@ extern "C" {
     #[doc = " operation, and thus must not be stored and used later."]
     #[doc = ""]
     #[doc = " @return the context"]
-    #[link_name = "\u{1}_fuse_get_context"]
     pub fn fuse_get_context() -> *mut fuse_context;
 }
 extern "C" {
@@ -6016,14 +5910,12 @@ extern "C" {
     #[doc = " @param size size of given array"]
     #[doc = " @param list array of group IDs to be filled in"]
     #[doc = " @return the total number of supplementary group IDs or -errno on failure"]
-    #[link_name = "\u{1}_fuse_getgroups"]
     pub fn fuse_getgroups(size: ::std::os::raw::c_int, list: *mut gid_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
     #[doc = " Check if the current request has already been interrupted"]
     #[doc = ""]
     #[doc = " @return 1 if the request has been interrupted, 0 otherwise"]
-    #[link_name = "\u{1}_fuse_interrupted"]
     pub fn fuse_interrupted() -> ::std::os::raw::c_int;
 }
 extern "C" {
@@ -6036,7 +5928,6 @@ extern "C" {
     #[doc = "         no entry to be invalidated, e.g., because the path has not"]
     #[doc = "         been seen before or has been forgotten; this should not be"]
     #[doc = "         considered to be an error."]
-    #[link_name = "\u{1}_fuse_invalidate_path"]
     pub fn fuse_invalidate_path(
         f: *mut fuse,
         path: *const ::std::os::raw::c_char,
@@ -6046,7 +5937,6 @@ extern "C" {
     #[doc = " The real main function"]
     #[doc = ""]
     #[doc = " Do not call this directly, use fuse_main()"]
-    #[link_name = "\u{1}_fuse_main_real"]
     pub fn fuse_main_real(
         argc: ::std::os::raw::c_int,
         argv: *mut *mut ::std::os::raw::c_char,
@@ -6061,7 +5951,6 @@ extern "C" {
     #[doc = " This is done automatically by fuse_loop_mt()"]
     #[doc = " @param fuse struct fuse pointer for fuse instance"]
     #[doc = " @return 0 on success and -1 on error"]
-    #[link_name = "\u{1}_fuse_start_cleanup_thread"]
     pub fn fuse_start_cleanup_thread(fuse: *mut fuse) -> ::std::os::raw::c_int;
 }
 extern "C" {
@@ -6069,7 +5958,6 @@ extern "C" {
     #[doc = ""]
     #[doc = " This is done automatically by fuse_loop_mt()"]
     #[doc = " @param fuse struct fuse pointer for fuse instance"]
-    #[link_name = "\u{1}_fuse_stop_cleanup_thread"]
     pub fn fuse_stop_cleanup_thread(fuse: *mut fuse);
 }
 extern "C" {
@@ -6080,7 +5968,6 @@ extern "C" {
     #[doc = ""]
     #[doc = " @param fuse struct fuse pointer for fuse instance"]
     #[doc = " @return the number of seconds until the next cleanup"]
-    #[link_name = "\u{1}_fuse_clean_cache"]
     pub fn fuse_clean_cache(fuse: *mut fuse) -> ::std::os::raw::c_int;
 }
 #[doc = " Fuse filesystem object"]
@@ -6092,7 +5979,6 @@ pub struct fuse_fs {
     _unused: [u8; 0],
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_getattr"]
     pub fn fuse_fs_getattr(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6101,7 +5987,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_rename"]
     pub fn fuse_fs_rename(
         fs: *mut fuse_fs,
         oldpath: *const ::std::os::raw::c_char,
@@ -6110,21 +5995,18 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_unlink"]
     pub fn fuse_fs_unlink(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_rmdir"]
     pub fn fuse_fs_rmdir(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_symlink"]
     pub fn fuse_fs_symlink(
         fs: *mut fuse_fs,
         linkname: *const ::std::os::raw::c_char,
@@ -6132,7 +6014,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_link"]
     pub fn fuse_fs_link(
         fs: *mut fuse_fs,
         oldpath: *const ::std::os::raw::c_char,
@@ -6140,7 +6021,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_release"]
     pub fn fuse_fs_release(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6148,7 +6028,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_open"]
     pub fn fuse_fs_open(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6156,7 +6035,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_read"]
     pub fn fuse_fs_read(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6167,7 +6045,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_read_buf"]
     pub fn fuse_fs_read_buf(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6178,7 +6055,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_write"]
     pub fn fuse_fs_write(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6189,7 +6065,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_write_buf"]
     pub fn fuse_fs_write_buf(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6199,7 +6074,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_fsync"]
     pub fn fuse_fs_fsync(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6208,7 +6082,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_flush"]
     pub fn fuse_fs_flush(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6216,7 +6089,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_statfs"]
     pub fn fuse_fs_statfs(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6224,7 +6096,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_opendir"]
     pub fn fuse_fs_opendir(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6232,7 +6103,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_readdir"]
     pub fn fuse_fs_readdir(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6244,7 +6114,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_fsyncdir"]
     pub fn fuse_fs_fsyncdir(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6253,7 +6122,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_releasedir"]
     pub fn fuse_fs_releasedir(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6261,7 +6129,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_create"]
     pub fn fuse_fs_create(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6270,7 +6137,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_lock"]
     pub fn fuse_fs_lock(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6280,7 +6146,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_flock"]
     pub fn fuse_fs_flock(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6289,7 +6154,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_chmod"]
     pub fn fuse_fs_chmod(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6298,7 +6162,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_chown"]
     pub fn fuse_fs_chown(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6308,7 +6171,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_truncate"]
     pub fn fuse_fs_truncate(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6317,7 +6179,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_utimens"]
     pub fn fuse_fs_utimens(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6326,7 +6187,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_access"]
     pub fn fuse_fs_access(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6334,7 +6194,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_readlink"]
     pub fn fuse_fs_readlink(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6343,7 +6202,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_mknod"]
     pub fn fuse_fs_mknod(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6352,7 +6210,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_mkdir"]
     pub fn fuse_fs_mkdir(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6360,7 +6217,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_setxattr"]
     pub fn fuse_fs_setxattr(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6371,7 +6227,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_getxattr"]
     pub fn fuse_fs_getxattr(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6381,7 +6236,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_listxattr"]
     pub fn fuse_fs_listxattr(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6390,7 +6244,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_removexattr"]
     pub fn fuse_fs_removexattr(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6398,7 +6251,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_bmap"]
     pub fn fuse_fs_bmap(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6407,7 +6259,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_ioctl"]
     pub fn fuse_fs_ioctl(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6419,7 +6270,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_poll"]
     pub fn fuse_fs_poll(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6429,7 +6279,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_fallocate"]
     pub fn fuse_fs_fallocate(
         fs: *mut fuse_fs,
         path: *const ::std::os::raw::c_char,
@@ -6440,7 +6289,6 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_copy_file_range"]
     pub fn fuse_fs_copy_file_range(
         fs: *mut fuse_fs,
         path_in: *const ::std::os::raw::c_char,
@@ -6454,15 +6302,12 @@ extern "C" {
     ) -> isize;
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_init"]
     pub fn fuse_fs_init(fs: *mut fuse_fs, conn: *mut fuse_conn_info, cfg: *mut fuse_config);
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_fs_destroy"]
     pub fn fuse_fs_destroy(fs: *mut fuse_fs);
 }
 extern "C" {
-    #[link_name = "\u{1}_fuse_notify_poll"]
     pub fn fuse_notify_poll(ph: *mut fuse_pollhandle) -> ::std::os::raw::c_int;
 }
 extern "C" {
@@ -6477,7 +6322,6 @@ extern "C" {
     #[doc = "            field of `struct fuse_context`. May be overridden by the"]
     #[doc = "            `struct fuse_operations.init` handler."]
     #[doc = " @return a new filesystem object"]
-    #[link_name = "\u{1}_fuse_fs_new"]
     pub fn fuse_fs_new(
         op: *const fuse_operations,
         op_size: usize,
@@ -6501,7 +6345,6 @@ pub type fuse_module_factory_t = ::std::option::Option<
 >;
 extern "C" {
     #[doc = " Get session from fuse object"]
-    #[link_name = "\u{1}_fuse_get_session"]
     pub fn fuse_get_session(f: *mut fuse) -> *mut fuse_session;
 }
 extern "C" {
@@ -6511,18 +6354,9 @@ extern "C" {
     #[doc = " @param mountpoint reference to the mount in the file system"]
     #[doc = " @param options mount options"]
     #[doc = " @return the FUSE file descriptor or -1 upon error"]
-    #[link_name = "\u{1}_fuse_open_channel"]
     pub fn fuse_open_channel(
         mountpoint: *const ::std::os::raw::c_char,
         options: *const ::std::os::raw::c_char,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    #[link_name = "\u{1}_rust_fuse_main"]
-    pub fn rust_fuse_main(
-        argc: ::std::os::raw::c_int,
-        argv: *mut *mut ::std::os::raw::c_char,
-        op: *const fuse_operations,
     ) -> ::std::os::raw::c_int;
 }
 pub type __builtin_va_list = [__va_list_tag; 1usize];

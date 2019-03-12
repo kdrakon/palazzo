@@ -4,10 +4,12 @@ use std::env;
 use std::path::PathBuf;
 
 fn main() {
-    println!("cargo:rustc-link-lib=libfuse");
+    println!("cargo:rustc-link-search=/usr/local/lib");
+    println!("cargo:rustc-link-lib=osxfuse");
 
     let bindings = bindgen::Builder::default()
         .header("src/fuse_wrapper.h")
+        .trust_clang_mangling(false)
         .generate()
         .expect("Unable to generate bindings");
 
