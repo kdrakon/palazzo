@@ -4,6 +4,8 @@ use std::env;
 use std::path::PathBuf;
 
 fn main() {
+    println!("cargo:rustc-link-lib=libfuse");
+
     let bindings = bindgen::Builder::default()
         .header("src/fuse_wrapper.h")
         .generate()
